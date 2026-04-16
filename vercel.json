@@ -1,0 +1,11 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/landing", "destination": "/pages/decker-play-landing.html", "permanent": false },
+    { "source": "/get-started", "destination": "/pages/decker-play-get-started.html", "permanent": false },
+    { "source": "/thank-you", "destination": "/pages/decker-play-thank-you.html", "permanent": false },
+    { "source": "/privacy", "destination": "/pages/decker-play-privacy.html", "permanent": false },
+    { "source": "/terms", "destination": "/pages/decker-play-terms.html", "permanent": false }
+  ]
+}
