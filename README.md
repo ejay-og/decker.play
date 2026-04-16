@@ -76,11 +76,10 @@ with inlined CSS and assets — no build step.
 
 ```
 index.html                       # Landing page (served at /)
-pages/
-├── decker-play-get-started.html # Signup form
-├── decker-play-thank-you.html   # Post-signup confirmation
-├── decker-play-privacy.html     # Privacy Policy
-└── decker-play-terms.html       # Terms of Service
+decker-play-get-started.html     # Signup form
+decker-play-thank-you.html       # Post-signup confirmation
+decker-play-privacy.html         # Privacy Policy
+decker-play-terms.html           # Terms of Service
 ```
 
 ### Preview locally

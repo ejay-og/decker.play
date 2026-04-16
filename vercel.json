@@ -3,9 +3,14 @@
   "trailingSlash": false,
   "redirects": [
     { "source": "/landing", "destination": "/", "permanent": false },
-    { "source": "/get-started", "destination": "/pages/decker-play-get-started.html", "permanent": false },
-    { "source": "/thank-you", "destination": "/pages/decker-play-thank-you.html", "permanent": false },
-    { "source": "/privacy", "destination": "/pages/decker-play-privacy.html", "permanent": false },
-    { "source": "/terms", "destination": "/pages/decker-play-terms.html", "permanent": false }
+    { "source": "/pages/decker-play-landing(\\.html)?", "destination": "/", "permanent": false },
+    { "source": "/pages/decker-play-get-started(\\.html)?", "destination": "/decker-play-get-started.html", "permanent": false },
+    { "source": "/pages/decker-play-thank-you(\\.html)?", "destination": "/decker-play-thank-you.html", "permanent": false },
+    { "source": "/pages/decker-play-privacy(\\.html)?", "destination": "/decker-play-privacy.html", "permanent": false },
+    { "source": "/pages/decker-play-terms(\\.html)?", "destination": "/decker-play-terms.html", "permanent": false },
+    { "source": "/get-started", "destination": "/decker-play-get-started.html", "permanent": false },
+    { "source": "/thank-you", "destination": "/decker-play-thank-you.html", "permanent": false },
+    { "source": "/privacy", "destination": "/decker-play-privacy.html", "permanent": false },
+    { "source": "/terms", "destination": "/decker-play-terms.html", "permanent": false }
   ]
 }
