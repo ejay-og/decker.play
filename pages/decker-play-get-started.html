@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Started — Decker.Play</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#0E0E0E;--surface:#161616;--surface2:#1E1E1E;--surface3:#262626;
+--yellow:#F0C230;--yellow-light:#FFD95A;--yellow-dim:rgba(240,194,48,0.08);
+--green:#4ADE80;--text:#F2F0EC;--text-muted:#7A756E;--text-dim:#4A4640;
+--border:rgba(255,255,255,0.06);--border-hover:rgba(240,194,48,0.25);
+--input-bg:#1A1A1A;--input-border:rgba(255,255,255,0.1);
+--px:20px;
+}
+html,body{overflow-x:hidden}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased}
+
+@media(min-width:768px){:root{--px:48px}}
+@media(min-width:1248px){:root{--px:calc((100vw - 1152px) / 2)}}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px var(--px);display:flex;justify-content:space-between;align-items:center;background:rgba(14,14,14,0.85);backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+.logo{font-family:'Outfit',sans-serif;font-weight:700;font-size:22px;color:var(--text);text-decoration:none}
+.logo span{color:var(--yellow)}
+.back-link{display:flex;align-items:center;gap:8px;color:var(--text-muted);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
+.back-link:hover{color:var(--text)}
+
+main{min-height:100vh;padding:100px var(--px) 60px;display:flex;flex-direction:column;gap:48px}
+@media(min-width:768px){
+main{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding-top:120px;padding-bottom:80px}
+}
+
+.value-side{animation:fadeUp .6s ease both}
+.value-side h1{font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(28px,5vw,44px);line-height:1.1;letter-spacing:-.02em;margin-bottom:16px}
+.value-side h1 em{font-weight:400;color:var(--yellow)}
+.value-side .subtitle{font-size:16px;color:var(--text-muted);line-height:1.6;margin-bottom:40px}
+
+.value-checklist{display:flex;flex-direction:column;gap:20px;margin-bottom:40px}
+.check-item{display:flex;align-items:flex-start;gap:14px}
+.check-icon{width:28px;height:28px;border-radius:8px;background:var(--yellow-dim);border:1px solid rgba(240,194,48,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.check-text h4{font-weight:600;font-size:15px;margin-bottom:2px}
+.check-text p{font-size:13px;color:var(--text-muted);line-height:1.5}
+
+.trust-mini{display:flex;flex-wrap:wrap;gap:24px;padding-top:28px;border-top:1px solid var(--border)}
+.trust-mini .tm{text-align:center;min-width:70px}
+.trust-mini .tm-val{font-family:'Outfit',sans-serif;font-weight:700;font-size:20px;color:var(--yellow)}
+.trust-mini .tm-label{font-size:11px;color:var(--text-dim);margin-top:2px}
+
+.form-side{animation:fadeUp .6s ease .15s both;min-width:0;max-width:100%;position:relative;z-index:10}
+.form-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:28px 20px;max-width:100%}
+@media(min-width:768px){.form-card{padding:40px 36px;border-radius:24px}}
+
+.form-card h2{font-family:'Outfit',sans-serif;font-weight:700;font-size:22px;margin-bottom:4px}
+.form-card .form-sub{font-size:14px;color:var(--text-muted);margin-bottom:28px}
+
+.form-grid{display:grid;grid-template-columns:1fr;gap:14px;max-width:100%}
+@media(min-width:480px){.form-grid{grid-template-columns:1fr 1fr}}
+
+.form-group{display:flex;flex-direction:column;gap:6px;min-width:0}
+.form-group.full{grid-column:1/-1}
+.form-group label{font-size:11px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em}
+
+.form-group input,
+.form-group .old-select{
+  display:block;
+  width:100%;
+  min-width:0;
+  max-width:100%;
+  background:var(--input-bg);
+  border:1px solid var(--input-border);
+  border-radius:10px;
+  padding:13px 14px;
+  font-size:16px;
+  color:var(--text);
+  font-family:'Plus Jakarta Sans',sans-serif;
+  outline:none;
+  transition:border-color .25s;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  appearance:none;
+}
+.form-group input::placeholder{color:var(--text-dim)}
+.form-group input:focus,.form-group select:focus{border-color:var(--yellow)}
+.form-group .old-select{
+  background-image:url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%237A756E' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 14px center;
+  padding-right:36px;
+  cursor:pointer;
+}
+
+
+
+.custom-select{position:relative;width:100%}
+.cs-trigger{display:flex;align-items:center;justify-content:space-between;background:var(--input-bg);border:1px solid var(--input-border);border-radius:10px;padding:13px 14px;font-size:16px;color:var(--text-dim);cursor:pointer;transition:border-color .25s;user-select:none}
+.custom-select.open .cs-trigger{border-color:var(--yellow);border-radius:10px 10px 0 0}
+.custom-select.open .cs-trigger svg{transform:rotate(180deg)}
+.cs-trigger svg{transition:transform .2s;flex-shrink:0}
+.cs-trigger span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.custom-select.selected .cs-trigger{color:var(--text)}
+.cs-options{display:none;position:absolute;top:100%;left:0;right:0;background:var(--surface2);border:1px solid var(--yellow);border-top:none;border-radius:0 0 10px 10px;z-index:50}
+.custom-select.open .cs-options{display:block}
+.cs-option{padding:12px 14px;font-size:15px;color:var(--text-muted);cursor:pointer;transition:background .15s,color .15s}
+.cs-option:hover,.cs-option.hover{background:rgba(255,255,255,.1);color:#fff}
+.cs-option.active{background:rgba(240,194,48,.12);color:var(--yellow);font-weight:600}
+.cs-option:last-child{border-radius:0 0 10px 10px}
+
+.btn-submit{
+  width:100%;margin-top:20px;display:flex;align-items:center;justify-content:center;gap:10px;
+  background:var(--yellow);color:var(--bg);padding:16px 32px;border-radius:100px;
+  font-size:16px;font-weight:700;font-family:'Plus Jakarta Sans',sans-serif;
+  text-decoration:none;border:none;cursor:pointer;transition:all .3s;
+  box-shadow:0 4px 24px rgba(240,194,48,.25);
+}
+.btn-submit:hover{background:var(--yellow-light);transform:translateY(-2px);box-shadow:0 8px 32px rgba(240,194,48,.3)}
+
+.form-footer{text-align:center;margin-top:16px;font-size:12px;color:var(--text-dim);line-height:1.5}
+.form-footer a{color:var(--text-muted);text-decoration:underline;text-decoration-color:var(--text-dim);text-underline-offset:2px}
+
+.form-trust{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-top:20px;padding-top:20px;border-top:1px solid var(--border)}
+.form-trust .ft{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--text-dim)}
+
+footer{padding:28px var(--px);border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1}
+footer>span{font-size:13px;color:var(--text-dim)}
+footer span a{color:var(--text-muted);text-decoration:none;transition:color .2s}
+footer span a:hover{color:var(--yellow)}
+@media(max-width:768px){footer{flex-direction:column;gap:12px;text-align:center}}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo">Decker<span>.Play</span></a>
+  <a href="decker-play-landing.html" class="back-link">
+    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 3L5 8l5 5"/></svg>
+    Back to overview
+  </a>
+</nav>
+
+<main>
+  <div class="value-side">
+    <h1>Start earning from <em>your screens</em></h1>
+    <p class="subtitle">Fill out the form and we'll ship your free TV Box. Plug it in, and your restaurant starts earning from day one.</p>
+
+    <div class="value-checklist">
+      <div class="check-item">
+        <div class="check-icon"><svg width="14" height="14" fill="none" stroke="#F0C230" stroke-width="2" stroke-linecap="round"><path d="M3 7.5l2.5 2.5L11 4"/></svg></div>
+        <div class="check-text">
+          <h4>Free HDMI TV Box</h4>
+          <p>Plugs into any TV you already own. No special hardware needed.</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon"><svg width="14" height="14" fill="none" stroke="#F0C230" stroke-width="2" stroke-linecap="round"><path d="M3 7.5l2.5 2.5L11 4"/></svg></div>
+        <div class="check-text">
+          <h4>You keep 65% of ad revenue</h4>
+          <p>Paid monthly. Brands bid on your screen time automatically through The Trade Desk, Google DV360, and more.</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon"><svg width="14" height="14" fill="none" stroke="#F0C230" stroke-width="2" stroke-linecap="round"><path d="M3 7.5l2.5 2.5L11 4"/></svg></div>
+        <div class="check-text">
+          <h4>Free digital signage built in</h4>
+          <p>Menus, daily specials, Instagram feed, sports scores, events — even without ads, it's a complete signage system.</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon"><svg width="14" height="14" fill="none" stroke="#F0C230" stroke-width="2" stroke-linecap="round"><path d="M3 7.5l2.5 2.5L11 4"/></svg></div>
+        <div class="check-text">
+          <h4>No contract, no monthly fees</h4>
+          <p>Cancel anytime. Unplug and you're done. We earn when you earn.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="trust-mini">
+      <div class="tm"><div class="tm-val">$50–3,500</div><div class="tm-label">Monthly earnings range</div></div>
+      <div class="tm"><div class="tm-val">65/35</div><div class="tm-label">Your revenue share</div></div>
+      <div class="tm"><div class="tm-val">30+</div><div class="tm-label">DSPs connected</div></div>
+    </div>
+  </div>
+
+  <div class="form-side">
+    <div class="form-card">
+      <h2>Get your TV Box</h2>
+      <p class="form-sub">We'll reach out within 24 hours to get you set up.</p>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label>First name</label>
+          <input type="text" placeholder="Maria">
+        </div>
+        <div class="form-group">
+          <label>Last name</label>
+          <input type="text" placeholder="Gonzalez">
+        </div>
+        <div class="form-group full">
+          <label>Restaurant name</label>
+          <input type="text" placeholder="Maria's Kitchen">
+        </div>
+        <div class="form-group full">
+          <label>Email</label>
+          <input type="email" placeholder="maria@mariaskitchen.com">
+        </div>
+        <div class="form-group">
+          <label>Phone</label>
+          <input type="tel" placeholder="(555) 123-4567">
+        </div>
+        <div class="form-group">
+          <label>City</label>
+          <input type="text" placeholder="Los Angeles">
+        </div>
+        <div class="form-group">
+          <label>Venue type</label>
+          <div class="custom-select" data-placeholder="Select type">
+            <div class="cs-trigger"><span>Select type</span><svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5L11 1.5" stroke="#7A756E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="cs-options">
+              <div class="cs-option">Small cafe</div>
+              <div class="cs-option">Casual dining</div>
+              <div class="cs-option">Fine dining</div>
+              <div class="cs-option">Bar / lounge</div>
+              <div class="cs-option">Sports bar</div>
+              <div class="cs-option">Fast casual</div>
+              <div class="cs-option">Other</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Number of TVs</label>
+          <div class="custom-select" data-placeholder="Select">
+            <div class="cs-trigger"><span>Select</span><svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5L11 1.5" stroke="#7A756E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="cs-options">
+              <div class="cs-option">1</div>
+              <div class="cs-option">2</div>
+              <div class="cs-option">3</div>
+              <div class="cs-option">4</div>
+              <div class="cs-option">5+</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn-submit">
+        Get Started
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l6-6M5 6.5h6v6"/></svg>
+      </button>
+
+      <p class="form-footer">By signing up you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a></p>
+
+      <div class="form-trust">
+        <div class="ft"><svg width="14" height="14" fill="none" stroke="#4ADE80" stroke-width="1.5" stroke-linecap="round"><path d="M3 7.5l2.5 2.5L11 4"/></svg> No contract</div>
+        <div class="ft"><svg width="14" height="14" fill="none" stroke="#4ADE80" stroke-width="1.5" stroke-linecap="round"><path d="M3 7.5l2.5 2.5L11 4"/></svg> No monthly fees</div>
+        <div class="ft"><svg width="14" height="14" fill="none" stroke="#4ADE80" stroke-width="1.5" stroke-linecap="round"><path d="M3 7.5l2.5 2.5L11 4"/></svg> Cancel anytime</div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <a href="#" class="logo">Decker<span>.Play</span></a>
+  <span>&copy; 2026 Decker &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></span>
+</footer>
+
+
+<script>
+document.querySelectorAll('.custom-select').forEach(sel => {
+  const trigger = sel.querySelector('.cs-trigger');
+  const options = sel.querySelectorAll('.cs-option');
+  const label = trigger.querySelector('span');
+  
+  trigger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    document.querySelectorAll('.custom-select.open').forEach(s => {
+      if (s !== sel) s.classList.remove('open');
+    });
+    sel.classList.toggle('open');
+    if (sel.classList.contains('open')) {
+      setTimeout(() => {
+        const opts = sel.querySelector('.cs-options');
+        if (opts) opts.scrollIntoView({behavior:'smooth',block:'nearest'});
+      }, 50);
+    }
+  });
+  
+  options.forEach(opt => {
+    opt.addEventListener('click', () => {
+      label.textContent = opt.textContent;
+      sel.classList.add('selected');
+      sel.classList.remove('open');
+      options.forEach(o => o.classList.remove('active'));
+      opt.classList.add('active');
+    });
+    opt.addEventListener('mouseenter', () => opt.classList.add('hover'));
+    opt.addEventListener('mouseleave', () => opt.classList.remove('hover'));
+    opt.addEventListener('touchstart', () => {
+      options.forEach(o => o.classList.remove('hover'));
+      opt.classList.add('hover');
+    }, {passive:true});
+    opt.addEventListener('touchend', () => opt.classList.remove('hover'), {passive:true});
+  });
+});
+
+document.addEventListener('click', () => {
+  document.querySelectorAll('.custom-select.open').forEach(s => s.classList.remove('open'));
+});
+</script>
+</body>
+</html>
