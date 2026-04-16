@@ -75,20 +75,19 @@ This repo hosts the static marketing site. Pages are self-contained HTML
 with inlined CSS and assets — no build step.
 
 ```
+index.html                       # Landing page (served at /)
 pages/
-├── decker-play-landing.html      # Main marketing / landing page
-├── decker-play-get-started.html  # Signup form
-├── decker-play-thank-you.html    # Post-signup confirmation
-├── decker-play-privacy.html      # Privacy Policy
-└── decker-play-terms.html        # Terms of Service
+├── decker-play-get-started.html # Signup form
+├── decker-play-thank-you.html   # Post-signup confirmation
+├── decker-play-privacy.html     # Privacy Policy
+└── decker-play-terms.html       # Terms of Service
 ```
 
 ### Preview locally
 
 ```bash
-cd pages
 python3 -m http.server 8000
-# open http://localhost:8000/decker-play-landing.html
+# open http://localhost:8000/
 ```
 
 Any static host (GitHub Pages, Netlify, Vercel, S3+CloudFront) can serve the
