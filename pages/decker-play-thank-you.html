@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're In — Decker.Play</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#0E0E0E;--surface:#161616;--surface2:#1E1E1E;--surface3:#262626;
+--yellow:#F0C230;--yellow-light:#FFD95A;--yellow-dim:rgba(240,194,48,0.08);
+--green:#4ADE80;--green-dim:rgba(74,222,128,0.08);
+--text:#F2F0EC;--text-muted:#7A756E;--text-dim:#4A4640;
+--border:rgba(255,255,255,0.06);--border-hover:rgba(240,194,48,0.25);
+--px:20px;
+}
+html,body{overflow-x:hidden}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column}
+
+@media(min-width:768px){:root{--px:48px}}
+@media(min-width:1248px){:root{--px:calc((100vw - 1152px) / 2)}}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px var(--px);display:flex;justify-content:space-between;align-items:center;background:rgba(14,14,14,0.85);backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+.logo{font-family:'Outfit',sans-serif;font-weight:700;font-size:22px;color:var(--text);text-decoration:none}
+.logo span{color:var(--yellow)}
+
+main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:100px var(--px) 60px;text-align:center;position:relative}
+main::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(74,222,128,.04),transparent 55%);pointer-events:none}
+
+.success-icon{width:72px;height:72px;border-radius:50%;background:var(--green-dim);border:2px solid rgba(74,222,128,.2);display:flex;align-items:center;justify-content:center;margin:0 auto 28px;animation:scaleIn .5s ease both}
+@keyframes scaleIn{from{opacity:0;transform:scale(0.5)}to{opacity:1;transform:scale(1)}}
+
+.success-title{font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(28px,6vw,44px);line-height:1.1;letter-spacing:-.02em;margin-bottom:14px;animation:fadeUp .6s ease .2s both}
+.success-title em{font-weight:400;color:var(--yellow)}
+.success-sub{font-size:16px;color:var(--text-muted);line-height:1.6;max-width:440px;margin:0 auto 48px;animation:fadeUp .6s ease .3s both}
+
+.next-steps{display:grid;grid-template-columns:1fr;gap:16px;max-width:360px;width:100%;animation:fadeUp .6s ease .4s both}
+@media(min-width:768px){.next-steps{grid-template-columns:repeat(3,1fr);max-width:800px;gap:20px}}
+
+.step{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px 24px;text-align:center;transition:all .35s}
+.step:hover{border-color:var(--border-hover);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.25)}
+.step-num{font-family:'Outfit',sans-serif;font-weight:800;font-size:36px;color:rgba(240,194,48,.08);line-height:1;margin-bottom:14px}
+.step-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+.step-icon.yellow{background:var(--yellow-dim)}
+.step-icon.green{background:var(--green-dim)}
+.step-icon.blue{background:rgba(96,165,250,.08)}
+.step h3{font-family:'Outfit',sans-serif;font-weight:600;font-size:16px;margin-bottom:6px}
+.step p{font-size:13px;color:var(--text-muted);line-height:1.5}
+.step .step-time{display:inline-flex;align-items:center;gap:4px;margin-top:10px;font-size:11px;color:var(--text-dim);font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+
+footer{padding:28px var(--px);border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+footer>span{font-size:13px;color:var(--text-dim)}
+footer span a{color:var(--text-muted);text-decoration:none;transition:color .2s}
+footer span a:hover{color:var(--yellow)}
+@media(max-width:768px){footer{flex-direction:column;gap:12px;text-align:center}}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo">Decker<span>.Play</span></a>
+</nav>
+
+<main>
+  <div class="success-icon">
+    <svg width="32" height="32" fill="none" stroke="#4ADE80" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M8 17l6 6L24 9"/></svg>
+  </div>
+
+  <h1 class="success-title">You're in. <em>Welcome aboard.</em></h1>
+  <p class="success-sub">We've received your info. Our team will reach out within 24 hours to get your TV Box shipped and your screens earning.</p>
+
+  <div class="next-steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-icon yellow"><svg width="20" height="20" fill="none" stroke="#F0C230" stroke-width="1.5" stroke-linecap="round"><path d="M4 4h12c.6 0 1 .4 1 1v10c0 .6-.4 1-1 1H4c-.6 0-1-.4-1-1V5c0-.6.4-1 1-1z"/><path d="M17 5l-7 5L3 5"/></svg></div>
+      <h3>Check your email</h3>
+      <p>You'll receive a confirmation with your order details and what to expect next.</p>
+      <span class="step-time"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="5"/><path d="M6 3v3l2 1"/></svg> In a few minutes</span>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-icon green"><svg width="20" height="20" fill="none" stroke="#4ADE80" stroke-width="1.5" stroke-linecap="round"><path d="M14 3h4v4M12 8l6-6M18 12v4a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h4"/></svg></div>
+      <h3>We'll connect you</h3>
+      <p>A Decker.Play rep will reach out to confirm your setup and answer any questions.</p>
+      <span class="step-time"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="5"/><path d="M6 3v3l2 1"/></svg> Within 24 hours</span>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-icon blue"><svg width="20" height="20" fill="none" stroke="#60A5FA" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="6" width="16" height="12" rx="2"/><path d="M14 6V4a4 4 0 0 0-8 0v2"/></svg></div>
+      <h3>TV Box ships</h3>
+      <p>Your free HDMI TV Box arrives. Plug it in, connect wifi, and your screens start earning.</p>
+      <span class="step-time"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="5"/><path d="M6 3v3l2 1"/></svg> 3–5 business days</span>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <a href="#" class="logo">Decker<span>.Play</span></a>
+  <span>&copy; 2026 Decker &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></span>
+</footer>
+
+</body>
+</html>
