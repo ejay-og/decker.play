@@ -212,7 +212,7 @@ footer span a:hover{color:var(--yellow)}
         </div>
         <div class="form-group">
           <label>Phone</label>
-          <input type="tel" placeholder="(555) 123-4567">
+          <input type="tel" id="phone" placeholder="(555) 123-4567" maxlength="14" inputmode="tel" autocomplete="tel-national">
         </div>
         <div class="form-group">
           <label>City</label>
@@ -311,6 +311,35 @@ document.querySelectorAll('.custom-select').forEach(sel => {
 document.addEventListener('click', () => {
   document.querySelectorAll('.custom-select.open').forEach(s => s.classList.remove('open'));
 });
+
+// US phone mask: (XXX) XXX-XXXX, max 10 digits
+(function() {
+  const phone = document.getElementById('phone');
+  if (!phone) return;
+  const format = (digits) => {
+    digits = digits.slice(0, 10);
+    if (digits.length === 0) return '';
+    if (digits.length < 4) return '(' + digits;
+    if (digits.length < 7) return '(' + digits.slice(0, 3) + ') ' + digits.slice(3);
+    return '(' + digits.slice(0, 3) + ') ' + digits.slice(3, 6) + '-' + digits.slice(6);
+  };
+  phone.addEventListener('input', (e) => {
+    const digits = e.target.value.replace(/\D/g, '');
+    e.target.value = format(digits);
+  });
+  phone.addEventListener('keydown', (e) => {
+    // Block non-digit character keys (allow navigation, backspace, etc.)
+    if (e.key.length === 1 && !/[0-9]/.test(e.key) && !e.metaKey && !e.ctrlKey) {
+      e.preventDefault();
+    }
+  });
+  phone.addEventListener('paste', (e) => {
+    e.preventDefault();
+    const text = (e.clipboardData || window.clipboardData).getData('text');
+    const digits = text.replace(/\D/g, '');
+    phone.value = format(digits);
+  });
+})();
 </script>
 </body>
 </html>
